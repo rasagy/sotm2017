@@ -1,4 +1,4 @@
-mapboxgl.accessToken = 'pk.eyJ1IjoiamluYWxmb2ZsaWEiLCJhIjoiOE53X2toRSJ9.2aMeuYERrEvKHul16lAJjA';
+mapboxgl.accessToken = 'pk.eyJ1IjoicmFtYXMiLCJhIjoiUFdJckNoOCJ9.LGJOlhJCLddj5fk5da6ZjQ';
 	var map = new mapboxgl.Map({
 		container: 'map',
 		style: 'mapbox://styles/jinalfoflia/cj3vjeoku07182smjptw1rnph',
@@ -58,7 +58,7 @@ map.on('click', function (e) {
 	console.log(map.getZoom());
 	map.featuresAt(e.point, {
 		radius: 10,
-		layer: ['conference copy'],
+		layer: ['railwaystation copy'],
 		includeGeometry: true
 			}, function (err, features) {
 				if (err) throw err;
