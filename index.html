@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Train</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v0.1.0/mapbox-gl-geocoder.css' type='text/css' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.13.1/mapbox-gl.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v0.1.0/mapbox-gl-geocoder.js'></script>
+ 
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.13.1/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://www.mapbox.com/base/latest/base.css' rel='stylesheet' />
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
+    <link href='css/style.css' rel='stylesheet' />
+
+   
+</head>
+<body>
+	
+	</style>
+<div id='map'></div>
+
+		  <div class='rounded-toggle inline pin-bottom left'>
+			  <input id='infoToggle' class='infoToggler' type='radio' name='rtoggle' value='infoToggle' checked='checked' onclick = "showhide();">
+			  <label for='infoToggle' class="toggleLabel"  ><b>i</b></label>
+			 <!--  <input id='NY' class='cityInput' type='radio' name='rtoggle' value='NY' checked='checked' onclick="fly(NY);">
+			  <label for='NY' class='cityLabel'>Grand Central, New York</label>
+			  <input id='London' class='cityInput' type='radio' name='rtoggle' value='London' checked='checked' onclick="fly(London);">
+			  <label for='London' class='cityLabel'>St. Pancras, London</label>
+			  <input id='Japan' class='cityInput' type='radio' name='rtoggle' value='Japan' checked='checked' onclick="fly(Japan);">
+			  <label for='Japan' class='cityLabel'>Yokohama, Japan</label> -->
+			 
+		     </div>
+		 
+
+</div>
+<!-- <div class="round-button inline pin-bottom left"><div class="round-button-circle"><a href="http://example.com" class="round-button">Button!!</a></div></div>
+</div> -->
+
+ <aside id="sidebar" class="right" style="display:none;">
+ <!-- <button class="right button"><a href='#' class='button rcon next'></a></button> -->
+ <div class="info" class="left">
+
+ <h1>State of the Map Conferences 2017</h1>
+ <p>This map visualizes different cities in the world where State of the Map is happening this year. Toggle to different venues of SotMs this year and find the nearest one that you can attend.
+ <br/>
+ <br/>
+        <label for='Japan' class='cityLabel' onclick="fly(Japan,JapanZoom);">State of the Map, Fukushima, Japan <a href="http://2017.stateofthemap.org/">August 18th - August 20th</a></label>
+		  <br/>
+		  <label for='Lima' class='cityLabel' onclick="fly(Lima,LimaZoom);">State of the Map LatAm, Lima, Peru <a href="https://wiki.openstreetmap.org/wiki/State_Of_The_Map_Latam_2017"> November 29th to December 2nd</a></label>
+		  <br/>
+		  <label for='Boulder' class='cityLabel' onclick="fly(Boulder,BoulderZoom);">State of the Map US, Boulder, Colorado <a href="https://www.openstreetmap.us/2017/01/sotmus-2017-announcement/">October 19th - October 22nd</a></label>
+		  <br/>
+		  <label for='Kampala' class='cityLabel' onclick="fly(Kampala,KampalaZoom);">State of the Map Africa, Kampala, Uganda <a href="https://sotmafrica.org/">July 8th - July 10th</a></label>
+		  <br/>
+		  <label for='Avignon' class='cityLabel' onclick="fly(Avignon,AvignonZoom);">State of the Map France, Avignon, France <a href="https://wiki.openstreetmap.org/wiki/State_of_the_Map_France_2017"> June 2nd - June 4th</a></label>
+		  <br/>
+		  <label for='Kathmandu' class='cityLabel' onclick="fly(Kathmandu,KathmanduZoom);">State of the Map Asia, Kathmandu, Nepal <a href="http://stateofthemap.asia/">September 23rd - September 24th</a></label>
+		  <br/>
+		  <label for='Buenos_Aires' class='cityLabel' onclick="fly(Buenos_Aires,Buenos_AiresZoom);">State of the Map Argentina, Buenos Aires, Argentina </label>
+		  </p>
+		  </div>
+		  <br/>
+     <div class="pad1y">
+         This map is made by Jinal Foflia, if you have questions or suggestions hit me up on <a href="https://twitter.com/fofliajinal">Twitter</a> and to know about how this map was made follow <a href="https://twitter.com/mapbox">Mapbox</a>.
+     </div>
+
+    
+
+  
+
+</aside>
+<br/>
+
+<script src="js/app.js" >
+
+
+
+</script>
+
+</body>
+</html>
+
