@@ -54,27 +54,6 @@ function showhide()
  }
 
 
-map.on('click', function (e) {
-	console.log(map.getZoom());
-	map.featuresAt(e.point, {
-		radius: 10,
-		layer: ['railwaystation copy'],
-		includeGeometry: true
-			}, function (err, features) {
-				if (err) throw err;
-
-				if (features.length > 0) {
-
-					var popupHTML = '<h5>' + '<a href="http://www.openstreetmap.org/edit?editor=id&node=' + features[0].properties._osm_node_id +'">'+ features[0].properties.name+"</a>"+'</h5>'+ 
-					                "Last edited by: "+ '<a href="http://www.openstreetmap.org/user/' + features[0].properties._user +'">' +features[0].properties._user+"</a>";
-
-					var popup = new mapboxgl.Popup()
-								.setLngLat(features[0].geometry.coordinates)
-								.setHTML(popupHTML)
-								.addTo(map);
-							}
-						});
-
-});
+);
 
 
