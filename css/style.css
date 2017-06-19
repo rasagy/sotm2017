@@ -46,7 +46,7 @@ body { margin:0; padding:0; }
     bottom:1%;
     /*we hide it to the left while being absolute*/
     cursor:pointer;
-    background: none transparent;
+    background: rgba(0,0,0,0.5); /* none transparent */
     /*background-color: rgba(0,0,0,0.5)*/
    
     transition:all 0.8s ease-in-out;
@@ -63,10 +63,10 @@ body { margin:0; padding:0; }
 aside {
     font:15px Arial;
     color:#ccc;
-    width:300px;
+    width:350px;
     background:#000;
     /*border-right:10px solid #1CABD2;*/
-    height:325px;
+    height:650px;
 }
 button {
     height:100%;

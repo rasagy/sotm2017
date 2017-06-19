@@ -1,16 +1,14 @@
-mapboxgl.accessToken = 'pk.eyJ1IjoicmFtYXMiLCJhIjoiUFdJckNoOCJ9.LGJOlhJCLddj5fk5da6ZjQ';
-	var map = new mapboxgl.Map({
-		container: 'map',
-		style: 'mapbox://styles/jinalfoflia/cj3vjeoku07182smjptw1rnph',
-		center: [32.245574, 28.325215],
-		zoom: 1.85,
-		hash: true,
-		attributionControl:false
-	});
+mapboxgl.accessToken = 'pk.eyJ1IjoiamluYWxmb2ZsaWEiLCJhIjoiOE53X2toRSJ9.2aMeuYERrEvKHul16lAJjA';
+var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/jinalfoflia/cj3vjeoku07182smjptw1rnph', //stylesheet location
+    center: [-74.50, 40], // starting position
+    zoom: 9 // starting zoom
+});
 
     var Japan = [139.93281,37.48161];  
 	var Lima = [-77.04106,-12.05915]; 
-	var Boulder = [-105.264,40.0071; // 15.13/40.0071/-105.264/0/60
+	var Boulder = [-105.264,40.0071]; // 15.13/40.0071/-105.264/0/60
 	var Kampala = [24.4,32.5789]; // 15.96/0.312/32.5789/24.4/6
 	var Avignon = [4.8128,43.9449]; // 15.31/43.9449/4.8128/-21.7/60
 	var Buenos_Aires = [-58.4101,-34.5867]; //15.4/-34.5867/-58.4101/0/60
@@ -54,6 +52,6 @@ function showhide()
  }
 
 
-);
+
 
 
