@@ -3,10 +3,11 @@ var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/jinalfoflia/cj3vjeoku07182smjptw1rnph', //stylesheet location
     center: [-74.50, 40], // starting position
-    zoom: 9 // starting zoom
+    zoom: 9, // starting zoom
+    hash: true,
 });
 
-    var Japan = [139.93281,37.48161];  
+  var Japan = [139.93281,37.48161];  
 	var Lima = [-77.04106,-12.05915]; 
 	var Boulder = [-105.264,40.0071]; // 15.13/40.0071/-105.264/0/60
 	var Kampala = [24.4,32.5789]; // 15.96/0.312/32.5789/24.4/6
@@ -29,9 +30,9 @@ var map = new mapboxgl.Map({
 	function fly(city,cityZoom) {
     
     	map.flyTo({
-        	center: city,
+      center: city,
 			zoom: cityZoom,
-			speed:0.3,
+			speed:3,
 			curve:2,
 			pitch:60,
 			bearing:0

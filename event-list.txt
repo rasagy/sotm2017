@@ -1,0 +1,50 @@
+
+State of the Map
+Fukushima, Japan
+http://2017.stateofthemap.org/
+August 18th – August 20th
+SOTM-Japan.svg
+19/37.48583/139.93473
+
+State of the Map France
+Avignon, France
+https://openstreetmap.fr/sotmfr2017
+June 2nd – June 4th
+SOTM-France.png
+18/43.95009/4.81901
+
+State of the Map Africa
+Kampala, Uganda
+https://sotmafrica.org/
+July 8th – July 10th
+SOTM-Uganda.png
+17/0.3357/32.5608
+
+State of the Map Asia
+Kathmandu, Nepal
+http://stateofthemap.asia/
+September 23rd – September 24th
+SOTM-Nepal.png
+18/27.77449/85.35953
+
+State of the Map US
+Boulder, Colorado
+https://2017.stateofthemap.us/
+October 19th – October 22nd
+SOTM-USA.svg
+17/40.00737/-105.27241
+
+
+FOSS4G + State of the Map Argentina
+Buenos Aires
+http://www.foss4g-ar.org/
+October 23rd – October 28th
+SOTM-Argentina.svg
+18/-34.57165/-58.44037
+
+State of the Map LatAm
+Lima, Peru
+http://state.osmlatam.org/
+November 29th – December 2nd
+SOTM-Peru.png
+19/-12.05819/-77.08154

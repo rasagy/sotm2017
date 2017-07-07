@@ -1,0 +1,110 @@
+{
+  "type": "FeatureCollection",
+  "features": [{
+      "type": "Feature",
+      "properties": {
+        "name": "SotM",
+        "location": "Fukushima, Japan",
+        "url": "http://2017.stateofthemap.org/",
+        "date": "Aug 18th – Aug 20th",
+        "logo": "SOTM-Japan.svg",
+        "zoom": 19
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [139.93473, 37.48583]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "SotM France",
+        "location": "Avignon, France",
+        "url": "https://openstreetmap.fr/sotmfr2017",
+        "date": "Jun 2nd – Jun 4th",
+        "logo": "SOTM-France.png",
+        "zoom": 18
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.81901, 43.95009]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "SotM Africa",
+        "location": "Kampala, Uganda",
+        "url": "https://sotmafrica.org/",
+        "date": "Jul 8th – Jul 10th",
+        "logo": "SOTM-Uganda.png",
+        "zoom": 17
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [32.5608, 0.3357]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "SotM Asia",
+        "location": "Kathmandu, Nepal",
+        "url": "http://stateofthemap.asia/",
+        "date": "Sept 23rd – Sept 24th",
+        "logo": "SOTM-Nepal.png",
+        "zoom": 18
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [85.35953, 27.77449]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "SotM US",
+        "location": "Boulder, Colorado",
+        "url": "https://2017.stateofthemap.us/",
+        "date": "Oct 19th – Oct 22nd",
+        "logo": "SOTM-USA.svg",
+        "zoom": 17
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.27241, 40.00737]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "FOSS4G + SotM Argentina",
+        "location": "Buenos Aires",
+        "url": "http://www.foss4g-ar.org/",
+        "date": "Oct 23rd – Oct 28th",
+        "logo": "SOTM-Argentina.svg",
+        "zoom": 18
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.44037, -34.57165]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "SotM LatAm",
+        "location": "Lima, Peru",
+        "url": "http://state.osmlatam.org/",
+        "date": "Nov 29th – Dec 2nd",
+        "logo": "SOTM-Peru.png",
+        "zoom": 19
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.08154, -12.05819]
+      }
+    }
+  ]
+}

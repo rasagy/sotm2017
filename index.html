@@ -6,67 +6,229 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.css' rel='stylesheet' />
-     <link href='https://www.mapbox.com/base/latest/base.css' rel='stylesheet' />
-    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
     <link href='css/style.css' rel='stylesheet' />
-
     <style>
-        body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; }
+
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+
+    .marker {
+        display: block;
+        border: 3px solid #ddd;
+        border-radius: 3px;
+        cursor: pointer;
+        padding: 5px;
+        height: 50px;
+        background: #fff;
+        font-size: 10px;
+        line-height: 1.2;
+    }
+
+    .marker:after, .marker:before {
+        right: 100%;
+        top: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .marker:after {
+        border-color: rgba(136, 183, 213, 0);
+        border-right-color: #fff;
+        border-width: 3px;
+        margin-top: -3px;
+    }
+
+    .marker:before {
+        border-color: rgba(194, 225, 245, 0);
+        border-right-color: #ddd;
+        border-width: 8px;
+        margin-top: -8px;
+    }
+
+    .marker img {
+        height: 50px;
+    }
+
+    .marker .details {
+        display: none;
+        margin-left: 10px;
+    }
+
+    .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+        -webkit-align-self: center;
+        align-self: center;
+        border-bottom: none;
+        border-top-color: #fff;
+    }
+
+    .mapboxgl-popup-tip {
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        z-index: 1;
+    }
+
+    .marker:hover .details {
+        display:block;
+    }
+
+    .item {
+        float: left;
+        min-width: 30px;
+    }
     </style>
+
 </head>
 <body>
-
 <div id='map'></div>
-<div class='rounded-toggle inline pin-bottom left'>
-			  <input id='infoToggle' class='infoToggler' type='radio' name='rtoggle' value='infoToggle' checked='checked' onclick = "showhide();">
-			  <label for='infoToggle' class="toggleLabel"  ><b>i</b></label>
-			 <!--  <input id='NY' class='cityInput' type='radio' name='rtoggle' value='NY' checked='checked' onclick="fly(NY);">
-			  <label for='NY' class='cityLabel'>Grand Central, New York</label>
-			  <input id='London' class='cityInput' type='radio' name='rtoggle' value='London' checked='checked' onclick="fly(London);">
-			  <label for='London' class='cityLabel'>St. Pancras, London</label>
-			  <input id='Japan' class='cityInput' type='radio' name='rtoggle' value='Japan' checked='checked' onclick="fly(Japan);">
-			  <label for='Japan' class='cityLabel'>Yokohama, Japan</label> -->
-			 
-		     </div>
-		 
 
-</div>
-<!-- <div class="round-button inline pin-bottom left"><div class="round-button-circle"><a href="http://example.com" class="round-button">Button!!</a></div></div>
-</div> -->
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoicmFzYWd5IiwiYSI6Ilk2ay1VMEEifQ.CJfn_CxDfwyN5xaVfx4jaw';
+var geojson = {
+  "type": "FeatureCollection",
+  "features": [{
+      "type": "Feature",
+      "properties": {
+        "name": "SotM",
+        "location": "Fukushima, Japan",
+        "url": "http://2017.stateofthemap.org/",
+        "date": "Aug 18th – Aug 20th",
+        "logo": "SOTM-Japan.svg",
+        "zoom": 19
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [139.93473, 37.48583]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "SotM France",
+        "location": "Avignon, France",
+        "url": "https://openstreetmap.fr/sotmfr2017",
+        "date": "Jun 2nd – Jun 4th",
+        "logo": "SOTM-France.png",
+        "zoom": 18
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.81901, 43.95009]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "SotM Africa",
+        "location": "Kampala, Uganda",
+        "url": "https://sotmafrica.org/",
+        "date": "Jul 8th – Jul 10th",
+        "logo": "SOTM-Uganda.png",
+        "zoom": 17
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [32.5608, 0.3357]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "SotM Asia",
+        "location": "Kathmandu, Nepal",
+        "url": "http://stateofthemap.asia/",
+        "date": "Sept 23rd – Sept 24th",
+        "logo": "SOTM-Nepal.png",
+        "zoom": 18
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [85.35953, 27.77449]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "SotM US",
+        "location": "Boulder, Colorado",
+        "url": "https://2017.stateofthemap.us/",
+        "date": "Oct 19th – Oct 22nd",
+        "logo": "SOTM-USA.svg",
+        "zoom": 17
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.27241, 40.00737]
+      }
+    },
 
- <aside id="sidebar" class="right" style="display:none;">
- <!-- <button class="right button"><a href='#' class='button rcon next'></a></button> -->
- <div class="info" class="left">
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "FOSS4G + SotM Argentina",
+        "location": "Buenos Aires",
+        "url": "http://www.foss4g-ar.org/",
+        "date": "Oct 23rd – Oct 28th",
+        "logo": "SOTM-Argentina.svg",
+        "zoom": 18
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-58.44037, -34.57165]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "SotM LatAm",
+        "location": "Lima, Peru",
+        "url": "http://state.osmlatam.org/",
+        "date": "Nov 29th – Dec 2nd",
+        "logo": "SOTM-Peru.png",
+        "zoom": 19
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.08154, -12.05819]
+      }
+    }
+  ]
+};
 
- <h1>State of the Map Conferences 2017</h1>
- <p>This map visualizes different cities in the world where State of the Map is happening this year. Toggle to different venues of SotMs this year and find the nearest one that you can attend. To find more information, click on the respective dates of the events.
- <br/>
- <br/>
-        <label for='Japan' class='cityLabel' onclick="fly(Japan,JapanZoom);">State of the Map, Fukushima, Japan</label> <br> <a href="http://2017.stateofthemap.org/">August 18th - August 20th</a>
-		  <br/><br/>
-		  <label for='Lima' class='cityLabel' onclick="fly(Lima,LimaZoom);">State of the Map LatAm, Lima, Peru</label> <br> <a href="https://wiki.openstreetmap.org/wiki/State_Of_The_Map_Latam_2017"> November 29th to December 2nd</a>
-		  <br/><br/>
-		  <label for='Boulder' class='cityLabel' onclick="fly(Boulder,BoulderZoom);">State of the Map US, Boulder, Colorado </label><br> <a href="https://www.openstreetmap.us/2017/01/sotmus-2017-announcement/">October 19th - October 22nd</a>
-		  <br/><br/>
-		  <label for='Kampala' class='cityLabel' onclick="fly(Kampala,KampalaZoom);">State of the Map Africa, Kampala, Uganda </label><br><a href="https://sotmafrica.org/">July 8th - July 10th</a>
-		  <br/><br/>
-		  <label for='Avignon' class='cityLabel' onclick="fly(Avignon,AvignonZoom);">State of the Map France, Avignon, France </label><br><a href="https://wiki.openstreetmap.org/wiki/State_of_the_Map_France_2017"> June 2nd - June 4th</a>
-		  <br/><br/>
-		  <label for='Kathmandu' class='cityLabel' onclick="fly(Kathmandu,KathmanduZoom);">State of the Map Asia, Kathmandu, Nepal </label><br><a href="http://stateofthemap.asia/">September 23rd - September 24th</a>
-		  <br/><br/>
-		  <label for='Buenos_Aires' class='cityLabel' onclick="fly(Buenos_Aires,Buenos_AiresZoom);">State of the Map Argentina, Buenos Aires </label><br><a href="http://www.osgeo.org/node/1747"> 23rd October - 28th October</a>
-		  </p>
-		  </div>
-		  <br/>
-     <div class="pad1y">
-         This map is made by Jinal Foflia, if you have questions or suggestions hit me up on <a href="https://twitter.com/fofliajinal">Twitter</a>.
-     </div>
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/light-v9',
+    center: [140, 30],
+    zoom: 2,
+    hash: true
+});
 
-</aside>
-<br/>
-<script src= 'js/app.js'>
+// add markers to map
+geojson.features.forEach(function(marker) {
+    // create a DOM element for the marker
+    var el = document.createElement('div');
+    el.className = 'marker';
+    el.innerHTML = '<div class="item logo-box"><img src="logos/'+marker.properties.logo+'" style="margin-right: 0px;"/></div>'
+                   +'<div class="item details"><h2>'+marker.properties.name+'</h2>'
+                   +'<div class="row"><i>'+marker.properties.location+'</i>'
+                   +'<div class="row">'+marker.properties.date+'</div>'
+                   +'</div>';
+    // el.style = "transform: translate(593px, 189px); background: #fff url('logos/"+marker.properties.logo+"') top left no-repeat; background-size: contain;"    
+    // el.style.width = marker.properties.iconSize[0] + 'px';
+    // el.style.height = marker.properties.iconSize[1] + 'px';
 
+    el.addEventListener('click', function() {
+        window.alert(marker.properties.name);
+    });
+
+    // add marker to map
+    new mapboxgl.Marker(el, {offset: [6,-33]})
+        .setLngLat(marker.geometry.coordinates)
+        .addTo(map);
+});
 </script>
 
 </body>
