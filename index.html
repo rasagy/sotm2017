@@ -2,97 +2,28 @@
 <html>
 <head>
     <meta charset='utf-8' />
-    <title></title>
+    <title>SOTM Events 2017</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.css' rel='stylesheet' />
     <link href='css/style.css' rel='stylesheet' />
-    <style>
-
-    #map { position:absolute; top:0; bottom:0; width:100%; }
-
-    .marker {
-        display: block;
-        border: 3px solid #ddd;
-        border-radius: 3px;
-        cursor: pointer;
-        padding: 5px;
-        height: 50px;
-        background: #fff;
-        font-size: 10px;
-        line-height: 1.2;
-    }
-
-    .marker:after, .marker:before {
-        right: 100%;
-        top: 50%;
-        border: solid transparent;
-        content: " ";
-        height: 0;
-        width: 0;
-        position: absolute;
-        pointer-events: none;
-    }
-
-    .marker:after {
-        border-color: rgba(136, 183, 213, 0);
-        border-right-color: #fff;
-        border-width: 3px;
-        margin-top: -3px;
-    }
-
-    .marker:before {
-        border-color: rgba(194, 225, 245, 0);
-        border-right-color: #ddd;
-        border-width: 8px;
-        margin-top: -8px;
-    }
-
-    .marker img {
-        height: 50px;
-    }
-
-    .marker .details {
-        display: none;
-        margin-left: 10px;
-    }
-
-    .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
-        -webkit-align-self: center;
-        align-self: center;
-        border-bottom: none;
-        border-top-color: #fff;
-    }
-
-    .mapboxgl-popup-tip {
-        width: 0;
-        height: 0;
-        border: 10px solid transparent;
-        z-index: 1;
-    }
-
-    .marker:hover .details {
-        display:block;
-    }
-
-    .item {
-        float: left;
-        min-width: 30px;
-    }
-    </style>
-
 </head>
 <body>
 <div id='map'></div>
-
+<div id='header-box'>
+<div id='header'>
+  <h1>State of the Map events across the world</h1>
+  <h6>Hover for more details, and click to view the official website</h6>
+</div>
+</div>
 <script>
-mapboxgl.accessToken = 'pk.eyJ1IjoicmFzYWd5IiwiYSI6Ilk2ay1VMEEifQ.CJfn_CxDfwyN5xaVfx4jaw';
+mapboxgl.accessToken = 'pk.eyJ1IjoicmFzYWd5IiwiYSI6ImNqNHR0cjMyaTA3NDUzM211c2hsM3draG8ifQ.Ke3QD4Grwe1ZlDPJn37Ntg';
 var geojson = {
   "type": "FeatureCollection",
   "features": [{
       "type": "Feature",
       "properties": {
-        "name": "SotM",
+        "name": "State of the Map",
         "location": "Fukushima, Japan",
         "url": "http://2017.stateofthemap.org/",
         "date": "Aug 18th – Aug 20th",
@@ -199,35 +130,31 @@ var geojson = {
 };
 
 var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/light-v9',
-    center: [140, 30],
-    zoom: 2,
-    hash: true
+  container: 'map',
+  style: 'mapbox://styles/mapbox/light-v9',
+  center: [140, 30],
+  zoom: 2,
+  hash: true,
+  dragRotate: false,
+  touchZoomRotate: false,
 });
 
 // add markers to map
 geojson.features.forEach(function(marker) {
-    // create a DOM element for the marker
-    var el = document.createElement('div');
-    el.className = 'marker';
-    el.innerHTML = '<div class="item logo-box"><img src="logos/'+marker.properties.logo+'" style="margin-right: 0px;"/></div>'
-                   +'<div class="item details"><h2>'+marker.properties.name+'</h2>'
-                   +'<div class="row"><i>'+marker.properties.location+'</i>'
-                   +'<div class="row">'+marker.properties.date+'</div>'
-                   +'</div>';
-    // el.style = "transform: translate(593px, 189px); background: #fff url('logos/"+marker.properties.logo+"') top left no-repeat; background-size: contain;"    
-    // el.style.width = marker.properties.iconSize[0] + 'px';
-    // el.style.height = marker.properties.iconSize[1] + 'px';
-
-    el.addEventListener('click', function() {
-        window.alert(marker.properties.name);
-    });
-
-    // add marker to map
-    new mapboxgl.Marker(el, {offset: [6,-33]})
-        .setLngLat(marker.geometry.coordinates)
-        .addTo(map);
+  // create a DOM element for the marker
+  var el = document.createElement('div');
+  el.className = 'marker';
+  el.innerHTML = '<a href="' + marker.properties.url + '" target="_blank" rel="noopener"><div class="item logo-box"><img src="logos/' + marker.properties.logo + '" style="margin-right: 0px;"/></div>' +
+    '<div class="item details"><h2>' + marker.properties.name + '</h2>' +
+    '<div class="row"><i>' + marker.properties.location + '</i>' +
+    '<div class="row">' + marker.properties.date + '</div>' +
+    '</div></a>';
+  // add marker to map
+  new mapboxgl.Marker(el, {
+      offset: [6, -33]
+    })
+    .setLngLat(marker.geometry.coordinates)
+    .addTo(map);
 });
 </script>
 

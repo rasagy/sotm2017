@@ -1,12 +1,4 @@
-/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
-
-/* Minor fork */
-
-/**
- * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in
- *    IE on Windows Phone and in iOS.
- */
+/*! Minimal Normalize.css | MIT License | github.com/necolas/normalize.css */
 
 html {
   line-height: 1.15; /* 1 */
@@ -14,24 +6,109 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
-/* Sections
-   ========================================================================== */
-
-/**
- * Remove the margin in all browsers (opinionated).
- */
-
 body {
   margin: 0;
   padding: 0;
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
-
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
 
 h1, h2, h3 {
   font-size: 1.25em;
-  margin: 0.25em 0;
+  margin: 0.1em 0;
+}
+h4, h5, h6 {
+  font-size: 1.1em;
+  margin: 0 0;
+  font-weight: normal;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+#header-box {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 5px;
+    text-align: center;
+}
+#header {
+    display: inline-block;
+    background: #f8f8f8;
+    padding: 0.25em 1em 0.5em;
+    border: 1px solid #eee;
+    border-radius: 3px;
+}
+#header > h6 {
+    font-size: 0.9em;
+    font-style: italic;
+    line-height: 1.2;
+    margin: 0.25em;
+}
+.marker {
+    display: block;
+    border: 3px solid #ddd;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 5px;
+    height: 50px;
+    background: #fff;
+    font-size: 10px;
+    line-height: 1.3;
+}
+.marker:after,
+.marker:before {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+.marker:after {
+    border-color: rgba(136, 183, 213, 0);
+    border-right-color: #fff;
+    border-width: 5px;
+    margin-top: -5px;
+}
+.marker:before {
+    border-color: rgba(194, 225, 245, 0);
+    border-right-color: #ddd;
+    border-width: 10px;
+    margin-top: -10px;
+}
+.marker img {
+    height: 50px;
+}
+.marker .details {
+    display: block;
+    max-width: 0px;
+    height: 50px;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+.marker:hover .details {
+    display: block;
+    width: auto;
+    max-width: 200px;
+    margin-left: 10px;
+    opacity: 1;
+}
+.marker a,
+.marker a:visited,
+.marker a:hover,
+.marker a:active {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+.item {
+    float: left;
 }
