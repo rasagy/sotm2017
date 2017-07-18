@@ -20,7 +20,23 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoicmFzYWd5IiwiYSI6ImNqNHR0cjMyaTA3NDUzM211c2hsM3draG8ifQ.Ke3QD4Grwe1ZlDPJn37Ntg';
 var geojson = {
   "type": "FeatureCollection",
-  "features": [{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "HOT Summit 2017",
+        "location": "Ottawa, Canada",
+        "url": "http://summit.hotosm.org/",
+        "date": "Sep 14th – Sep 15th",
+        "logo": "HOT-Canada.png",
+        "zoom": 19
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.72800, 45.40988]
+      }
+    },
+    {
       "type": "Feature",
       "properties": {
         "name": "State of the Map",
@@ -132,8 +148,8 @@ var geojson = {
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/light-v9',
-  center: [140, 30],
-  zoom: 2,
+  center: [5, 20],
+  zoom: 0.9,
   hash: true,
   dragRotate: false,
   touchZoomRotate: false,
